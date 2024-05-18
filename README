@@ -1,0 +1,15 @@
+El primer comando que hay que ejecuatar es:
+- make -f Makefile.server_hora
+Este comando compila el progrma y lo deja listo para ser ejecutado, creando todos los archivos necesarios.
+A continuación hay que ejecutar los comandos en el siguiente orden (el oreden es importante porque sino está algún
+servidor ejecutándose el cliente dará error de que no se puede conectar):
+- ./server_hora_server: Este comando ejecuta el servidor RPC.
+- env IP_TUPLAS=163.117.142.41 ./server -p 3000: Este comando ejecuta el servidor principal. La dirección IP es la dirección del servidor RPC.
+Lo hemos hecho así para que los dos servidores puedan estar en máquinas diferentes y comunicarse entre ellos. El argumento -p 3000 es el puerto 
+en el que se ejecutará el servidor principal.
+- python3 ./servidorWeb.py -i 163.117.142.41: Este comando ejecuta el servidor web. El argumento -i es la dirección donde se va a ejcutar este servidor.
+Lo hemos hecho así para que se sepa donde se va a ejecutar el servidor web y así los clientes se puedan conectar a él desde cualquier otra dirección.
+- python3 ./client.py -s 127.0.0.1 -p 3000 -w 163.117.142.41: este comando ejecuta el cliente. El argumento -s es la dirección del servidor principal,
+el argumento -p es el puerto del servidor principal y el argumento -w es la dirección del servidor web. Esto permite que el cliente se pueda conectar
+a los servidores desde cualquier dirección. El código proporcionado de la shell del cliente no incluía el argumento -w, por lo que lo hemos añadido para
+poder conectar el cliente con el servidor web desde otra dirección IP.

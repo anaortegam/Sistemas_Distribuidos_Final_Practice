@@ -1,0 +1,36 @@
+REGISTER USER1
+REGISTER USER1
+UNREGISTER USER1
+UNREGISTER USER2 (nombre de usuario no registrado)
+CONNECT USER1 (si se ha borrado el usuario hay que registrarlo de nuevo)
+CONNECT USER2 (si se intenta conectar dos usuarios a la vez)
+CONNECT USER3 (se intenta conectar un usuario que no está registrado)
+CONNECT USER1 (se intenta conectar un usuario que ya está conectado. Para que de ese error hay que hacerlo en otra terminal)
+DISCONNECT USER3 (se intenta desconectar un usuario que no está registrado)
+DISCONNECT USER2 (no conectado)
+DISCONNECT USER2 (para que de el error de que no es el mismo usuario tendría que estar conectado en otra terminal)
+DISCONNECT USER1
+DISCONNECT USER1 (desconectar un usuario sin estar ninguno conectado)
+PUBLISH p1.txt prueba (se tiene que haber hecho antes un unregister)
+PUBLISH p1.txt prueba (no hay nadie conectado)
+PUBLISH p1.txt prueba (no existe el archivo p1.txt, habría que conectar primero un usuarip)
+PUBLISh p1.txt prueba (habría que crear el archivo p1.txt en el usuario)
+PUBLISH p1.txt prueba (título repetido)
+DELETE p1.txt (habría que hacer un unregister para que salga ese error)
+DELETE p1.txt (no hay usuarios conectados)
+DELETE p2.txt (el archivo no está publicado)
+DELETE p2.txt (el archivo tiene que estar publicado por otro usuario)
+DELETE p1.txt 
+LIST_USERS (habría que hacer un unregister para que salga ese error)
+LIST_USERS (no hay usuarios conectados)
+LIST_USERS
+LIST_CONTENT USER2 (habría que hacer un unregister para que salga ese error)
+LIST_CONTENT USER2 (no hay usuarios conectados)
+LIST_CONTENT USER4 
+LIST_CONTENT USER1
+GET_FILE USER2 p1.txt (habría que hacer un unregister para que salga ese error)
+GET_FILE USER2 p1.txt (no hay usuarios conectados)
+GET_FILE USER2 p1.txt(habría que hacer un unregister para que salga ese error)
+GET_FILE USER2 p1.txt(usuario remoto no conectado)
+GET_FILE USER2 p5.txt
+GET_FILE USER2 p1.txt
